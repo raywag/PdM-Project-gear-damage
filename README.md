@@ -10,13 +10,44 @@ This dataset is a collection of sensor measurements from seven accelerated life 
  Additionally,  tooth surface images captured after each run provide ground truth for damage progression. However, these will not be used in the scope of this project. Instead, proxy labels are generated which indicate the health of the gears. These labels are created based on the first run and the last run of each gear. 
 
 
-## Experiment Setup
-### Preprocessing
-### Sliding Windows
-### Proxy Labels
 
+## Experiment Setup
+## Preprocessing
+### Splitting The Dataset
+As the dataset provides the full life cycle of a gear, it is important keep correct order of collected data and keep each gear isolated from other gears. This requires a specific method for the training and test split. Due to the size of the dataset, only three gears where used as sample data from which the first few and the last few runs are extracted as a subset. 
+
+Cross-gear generalization is the goal that is why the first two gears are used as training data, while the third gear is used as test data. 
+
+### Scaling
+Scalers are only fit on training gears. Ranking based normalization is used, as well as standardscaler.
+
+### Sliding Windows
+Sliding windows are used because of the size of the dataset. 
+
+### Proxy Labels
+The PHM North America 2026 Conference Data Challenge provides images as health indicator. This model does not use these images as ground truth because it is out of the scope of a regression model. Instead, proxy labels which indicate the health of the gears will be generated. These labels are created based on the data of the first runs as healthy reference.
 
 ## Results
+![Results](results_plot.png)
+
+'n_train': 399,
+'n_test': 203
+
+'linear','rf',  'flat':
+  - 'mse': 1602.8208246216625,
+  - 'mae': 16.877056991891546,
+  - 'r2': 0.46416619766766,
+   
+
+ 'linear',  'ridge',  'stats':
+  - 'mse': 3651.4593426018555,
+  - 'mae': 21.941011617129757,
+  - 'r2': -0.2207074637117583,
+
+ 'linear',  'svr',  'stats':
+  - 'mse': 2475.316051427992,
+  - 'mae': 17.38212943755884,
+  - 'r2': 0.17248516400826341,
 
 ## Evaluation
 
