@@ -29,6 +29,9 @@ The PHM North America 2026 Conference Data Challenge provides images as health i
 
 ## Results
 ![Results](results_plot.png)
+![Results over Windows](results_plot_windows.png)
+![Results First Run](results_plot_testgear_first.png)
+![Results Last Run](results_plot_testgear_last.png)
 
 'n_train': 399,
 'n_test': 203
