@@ -52,5 +52,4 @@ The PHM North America 2026 Conference Data Challenge provides images as health i
   - 'mae': 17.38212943755884,
   - 'r2': 0.17248516400826341,
 
-## Evaluation
 
